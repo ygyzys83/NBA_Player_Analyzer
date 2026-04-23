@@ -1,0 +1,20 @@
+# --- API Keys and Secrets ---
+.env
+
+# --- Python / Environment ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+
+# --- IDE Settings (PyCharm) ---
+.idea/
+
+# --- Streamlit ---
+.streamlit/
+
+# --- System Files ---
+.DS_Store
+Thumbs.db
