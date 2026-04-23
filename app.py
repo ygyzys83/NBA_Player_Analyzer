@@ -10,7 +10,7 @@ from langchain_nvidia_ai_endpoints import ChatNVIDIA
 import re
 
 # GLOBAL SETTINGS - CHANGE THIS TO SWITCH ORGANIZER MODELS: "qwen3.6" or "glm-5.1"
-MODEL_PROVIDER = "qwen3.6"
+MODEL_PROVIDER = "glm-5.1"
 
 # Setup Environment
 load_dotenv()
