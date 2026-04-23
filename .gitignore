@@ -8,6 +8,7 @@ __pycache__/
 venv/
 env/
 .venv/
+app2.py
 
 # --- IDE Settings (PyCharm) ---
 .idea/
