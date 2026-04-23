@@ -10,24 +10,39 @@ from langchain_nvidia_ai_endpoints import ChatNVIDIA
 import re
 
 # GLOBAL SETTINGS - CHANGE THIS TO SWITCH ORGANIZER MODELS: "qwen3.6" or "glm-5.1"
-MODEL_PROVIDER = "glm-5.1"
+MODEL_PROVIDER = "qwen3.6"
 
 # Setup Environment
 load_dotenv()
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-# Worker Agent (Cloud)
-worker_model = genai.GenerativeModel('gemini-2.5-flash-lite')
+def get_secret(key):
+    # 1. Try local environment variable (.env)
+    value = os.getenv(key)
+    if value:
+        return value
+    # 2. Try Streamlit Cloud secrets
+    if key in st.secrets:
+        return st.secrets[key]
+    return None
 
+# Retrieve Keys
+GOOGLE_API_KEY = get_secret("GOOGLE_API_KEY")
+NVIDIA_API_KEY = get_secret("NVIDIA_API_KEY")
+APP_PASSWORD = get_secret("APP_PASSWORD")
 
-# 1. Password Protection Logic
+# Configure Gemini
+if GOOGLE_API_KEY:
+    genai.configure(api_key=GOOGLE_API_KEY)
+    worker_model = genai.GenerativeModel('gemini-2.5-flash-lite')
+
+# 1. Updated Password Protection Logic
 def check_password():
     """Returns True if the user had the correct password."""
-
     def password_entered():
-        if st.session_state["password"] == os.getenv("APP_PASSWORD"):
+        # Compare against the APP_PASSWORD retrieved via our helper function
+        if st.session_state["password"] == APP_PASSWORD:
             st.session_state["password_correct"] = True
-            del st.session_state["password"]  # remove password from state
+            del st.session_state["password"]
         else:
             st.session_state["password_correct"] = False
 
@@ -91,7 +106,7 @@ def run_comparison_research(player_name, player_data):
     if MODEL_PROVIDER == "glm-5.1":
         organizer_llm = ChatNVIDIA(
             model="z-ai/glm-5.1",
-            nvidia_api_key=os.getenv("NVIDIA_API_KEY")
+            nvidia_api_key=NVIDIA_API_KEY  # Change from os.getenv to the variable
         )
     else:
         organizer_llm = ChatOpenAI(
