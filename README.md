@@ -1,9 +1,11 @@
-![Python](https://shields.io)
-![Streamlit](https://shields.io)
-![NBA_API](https://shields.io)
-![Ollama](https://shields.io)
-![Google Gemini](https://shields.io)
-![LangChain](https://shields.io)
+### Built with
+
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Streamlit](https://img.shields.io/badge/streamlit-%23FF4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white)
+![NBA API](https://img.shields.io/badge/nba_api-FF6600?style=for-the-badge&logo=nba&logoColor=white)
+![Ollama](https://img.shields.io/badge/ollama-%23000000.svg?style=for-the-badge&logo=ollama&logoColor=white)
+![Google Gemini](https://img.shields.io/badge/google%20gemini-8E75B2?style=for-the-badge&logo=google%20gemini&logoColor=white)
+![LangChain](https://img.shields.io/badge/langchain-%231C3C3C.svg?style=for-the-badge&logo=langchain&logoColor=white)
 
 
 # 🏀 NBA Advanced Scout & Comp Engine
