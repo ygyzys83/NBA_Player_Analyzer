@@ -84,7 +84,7 @@ graph TD
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/yourusername/nba-scout-engine.git
+git clone https://github.com/ygyzys83/nba-scout-engine.git
 cd nba-scout-engine
 pip install -r requirements.txt
 ```
